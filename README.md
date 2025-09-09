@@ -53,3 +53,4 @@ Pero en dado caso no encuentre la llave, se retorna un JSON así:
 
 { "error": "key_not_found", "key": "mi_llave" } 
 
+Luego de unas modificaciones se logró poner los formularios dentro del server, ya no están aislados en un inex.html aparte.
