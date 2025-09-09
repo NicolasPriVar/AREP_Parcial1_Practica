@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.*;
 
-public class HttpConnectionExample {
+public class HttpConnection {
 
     private static final String USER_AGENT = "Mozilla/5.0";
     private static final String GET_URL = "localhost:36000";
