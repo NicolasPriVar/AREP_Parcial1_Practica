@@ -2,32 +2,54 @@
 <html>
 
 <head>
-    <title>Form Example</title>
+    <title>Parcial 1er corte</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-<h1>Form with GET</h1>
-<form action="/hello">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" value="John"><br><br>
-    <input type="button" value="Submit" onclick="loadGetMsg()">
+<h1>Formulario SET</h1>
+<form action="/setkv?key={key}&value={value}">
+    <label for="Key">Key:</label><br>
+    <input type="text" id="key" name="key" value=""><br><br>
+    <label for="Value">Value:</label><br>
+    <input type="text" id="value" name="value" value=""><br><br>
+
+    <input type="button" value="Crear o cambiar" onclick="loadSetMsg()">
+</form>
+<h1>Formulario GET</h1>
+<form action="/getkv?key={key}">
+    <label for="Key">Key:</label><br>
+    <input type="text" id="key2" name="key" value=""><br><br>
+    <input type="button" value="Pedir" onclick="loadGetMsg()">
 </form>
 <div id="getrespmsg"></div>
 
 <script>
     function loadGetMsg() {
-        let nameVar = document.getElementById("name").value;
+        let keyy = document.getElementById("key2").value;
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function () {
             document.getElementById("getrespmsg").innerHTML =
                 this.responseText;
         }
-        xhttp.open("GET", "/hello?name=" + nameVar);
+        xhttp.open("GET", "/getkv?key=" + keyy);
+        xhttp.send();
+    }
+
+    function loadSetMsg() {
+        let keyyy = document.setElementById("key").value;
+        let keyyyy = document.setElementById("value").value;
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+            document.setElementById("setrespmsg").innerHTML =
+                this.responseText;
+        }
+        xhttp.open("SET", "/setkv?key=" + keyyy + "&value=" + keyyyy);
         xhttp.send();
     }
 </script>
+<h4>Autor: Nicolás Prieto Vargas</h4>
 
 </body>
 
